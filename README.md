@@ -9,6 +9,9 @@ Explain how developers work with this system, and the envisioned work-flow.
 
 
 Analysis:
+
+The source code come from the app call The Fuck, an open source app which corrects your previous console command.
+
 1. Code size
 
 |Language                 |   files           |        blank |    comment    |  code|
@@ -22,7 +25,8 @@ Analysis:
 |SUM:                     |      405          | 3642         |  2208         | 10796|
 
 
-Opensource developed by volunteers
+Latest releases: 3.30, 81 releases
+Opensource developed by volunteers, 156 contributors
 
 2. CI/CD system
 
