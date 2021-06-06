@@ -3,7 +3,7 @@ For all documentation related to your final project. You can use it for other pu
 
 The wiki should introduce the code base, discuss where it comes from, its size, its relevance, its maturity, whether it is open or proprietary, professionally developed, or by volunteers.
 
-It should furthermore present briefly the CI/CD system, including the build andversion control system. It should present the static and dynamic analysis tools that will integrated, as well as the linked management systems.
+It should furthermore present briefly the CI/CD system, including the build and version control system. It should present the static and dynamic analysis tools that will integrated, as well as the linked management systems.
 
 Explain how developers work with this system, and the envisioned work-flow. 
 
@@ -25,11 +25,13 @@ The source code come from the app call The Fuck, an open source app which correc
 |SUM:                     |      405          | 3642         |  2208         | 10796|
 
 
-Latest releases: 3.30, 81 releases
+Latest releases: 3.30, 81 releases\
 Opensource developed by volunteers, 156 contributors
 
 2. CI/CD system
-
-Tools for style guide enforcement: flake8
+Build and version control system: Github
+CI: Using workflows of Github Actions to run test on push and pull request(It used to use travisci but then migrating to workflow from Jan)\
+CD: For delivering, it uses the script in release.py to bump to new version, then upload package to Pypi\
+Tools for style guide enforcement: flake8\
 
 3. How developers work with system
