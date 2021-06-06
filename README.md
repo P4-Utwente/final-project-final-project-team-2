@@ -16,7 +16,7 @@ The source code come from the app call The Fuck, an open source app which correc
 
 |Language                 |   files           |        blank |    comment    |  code|
 |-------------------------|-------------------|--------------|---------------|------|
-|Python                   |       391         |  3495        |   2208        |10095 |
+|Python                   |       391         |  3495        |   2208        |10095 (4348 LOC function, 5625 LOC for test)  |
 |Markdown                 |       4           | 138          |   0           | 528  |
 |XML                      |        6          |    0         |     0         |    94|
 |YAML                     |        2          |    6         |     0         |    68|
