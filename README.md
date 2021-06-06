@@ -28,10 +28,11 @@ The source code come from the app call The Fuck, an open source app which correc
 Latest releases: 3.30, 81 releases\
 Opensource developed by volunteers, 156 contributors
 
-2. CI/CD system
-Build and version control system: Github
+2. CI/CD system\
+Build and version control system: Github\
 CI: Using workflows of Github Actions to run test on push and pull request(It used to use travisci but then migrating to workflow from Jan)\
 CD: For delivering, it uses the script in release.py to bump to new version, then upload package to Pypi\
-Tools for style guide enforcement: flake8\
+Tools for style guide enforcement: flake8
 
-3. How developers work with system
+3. How developers work with system\
+  Developers will create pull request to the offical repostitory, author will review and consider to accept it
