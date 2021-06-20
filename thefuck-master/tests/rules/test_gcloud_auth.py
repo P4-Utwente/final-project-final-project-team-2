@@ -3,15 +3,17 @@ from thefuck.types import Command
 
 
 def test_match():
-    response1 = """
+    response = """
     ERROR: (gcloud.pubsub.subscriptions.list) You do not currently have an active account selected.
 """
-    assert match(Command('gcloud pubsub subscriptions list', response1))
+    assert match(Command('gcloud pubsub subscriptions list', response))
 
-    response2 = """
+
+def test_not_match():
+    response = """
     ERROR: (gcloud.ai-platform) Command name argument expected.
 """
-    assert not match(Command('gcloud ai-platform', response2))
+    assert not match(Command('gcloud ai-platform', response))
 
 
 def test_get_new_command():
