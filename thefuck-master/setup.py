@@ -31,7 +31,7 @@ elif (3, 0) < version < (3, 5):
           ' ({}.{} detected).'.format(*version))
     sys.exit(-1)
 
-VERSION = '3.30'
+VERSION = '3.32'
 
 install_requires = ['psutil', 'colorama', 'six', 'decorator', 'pyte']
 extras_require = {':python_version<"3.4"': ['pathlib2'],
@@ -43,9 +43,9 @@ setup(name='thefuck',
       version=VERSION,
       description="Magnificent app which corrects your previous console command",
       long_description=long_description,
-      author='Vladimir Iakovlev',
-      author_email='nvbn.rm@gmail.com',
-      url='https://github.com/nvbn/thefuck',
+      author='Ha Le',
+      author_email='nhiha001@gmail.com',
+      url='https://github.com/P4-Utwente/final-project-final-project-team-2/',
       license='MIT',
       packages=find_packages(exclude=['ez_setup', 'examples',
                                       'tests', 'tests.*', 'release']),
