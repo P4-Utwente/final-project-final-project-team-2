@@ -31,7 +31,7 @@ elif (3, 0) < version < (3, 5):
           ' ({}.{} detected).'.format(*version))
     sys.exit(-1)
 
-VERSION = '3.47'
+VERSION = '3.48'
 
 install_requires = ['psutil', 'colorama', 'six', 'decorator', 'pyte']
 extras_require = {':python_version<"3.4"': ['pathlib2'],
@@ -39,7 +39,7 @@ extras_require = {':python_version<"3.4"': ['pathlib2'],
                   ':python_version<="2.7"': ['decorator<5'],
                   ":sys_platform=='win32'": ['win_unicode_console']}
 
-setup(name='thefuck',
+setup(name='pppp-2',
       version=VERSION,
       description="Magnificent app which corrects your previous console command",
       long_description=long_description,
