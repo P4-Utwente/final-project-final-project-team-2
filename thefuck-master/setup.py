@@ -13,13 +13,13 @@ try:
         sys.exit(-1)
 except pkg_resources.DistributionNotFound:
     pass
-
-if os.environ.get('CONVERT_README'):
-    import pypandoc
-
-    long_description = pypandoc.convert('README.md', 'rst')
-else:
-    long_description = ''
+#
+# if os.environ.get('CONVERT_README'):
+#     # import pypandoc
+#
+#     long_description = pypandoc.convert('README.md', 'rst')
+# else:
+#     long_description = ''
 
 version = sys.version_info[:2]
 if version < (2, 7):
@@ -31,7 +31,7 @@ elif (3, 0) < version < (3, 5):
           ' ({}.{} detected).'.format(*version))
     sys.exit(-1)
 
-VERSION = '3.42'
+VERSION = '3.43'
 
 install_requires = ['psutil', 'colorama', 'six', 'decorator', 'pyte']
 extras_require = {':python_version<"3.4"': ['pathlib2'],
