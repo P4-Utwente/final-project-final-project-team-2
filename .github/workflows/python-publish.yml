@@ -16,9 +16,6 @@ jobs:
   deploy:
 
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./thefuck-master
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python
@@ -31,7 +28,7 @@ jobs:
         pip install -Ur requirements.txt
         pip install build
     - name: Build package
-      run: python setup.py sdist bdist_wheel
+      run: python ./thefuck-master/setup.py sdist bdist_wheel
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:
