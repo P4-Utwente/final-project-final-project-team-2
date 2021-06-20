@@ -20,7 +20,7 @@ except pkg_resources.DistributionNotFound:
 #     long_description = pypandoc.convert('README.md', 'rst')
 # else:
 #     long_description = ''
-
+long_description = ''
 version = sys.version_info[:2]
 if version < (2, 7):
     print('thefuck requires Python version 2.7 or later' +
@@ -31,7 +31,7 @@ elif (3, 0) < version < (3, 5):
           ' ({}.{} detected).'.format(*version))
     sys.exit(-1)
 
-VERSION = '3.43'
+VERSION = '3.44'
 
 install_requires = ['psutil', 'colorama', 'six', 'decorator', 'pyte']
 extras_require = {':python_version<"3.4"': ['pathlib2'],
