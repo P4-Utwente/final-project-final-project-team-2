@@ -3,4 +3,5 @@ def match(command):
 
 
 def get_new_command(command):
+
     return 'gcloud auth login && {}'.format(command.script)
