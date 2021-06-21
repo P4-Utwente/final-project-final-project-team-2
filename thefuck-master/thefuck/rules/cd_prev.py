@@ -1,11 +1,9 @@
 # Adds the missing space between the cd command and the target directory
-# when trying to cd to the parent directory.
-#
-# Does not really save chars, but is fun :D
+# when trying to cd to the previous directory.
 #
 # Example:
 # > cd-
-# cd-: command not found
+# Command 'cd-' not found, did you mean:
 
 
 def match(command):
