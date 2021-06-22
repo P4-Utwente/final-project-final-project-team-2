@@ -13,14 +13,14 @@ try:
         sys.exit(-1)
 except pkg_resources.DistributionNotFound:
     pass
-
-if os.environ.get('CONVERT_README'):
-    import pypandoc
-
-    long_description = pypandoc.convert('README.md', 'rst')
-else:
-    long_description = ''
-
+#
+# if os.environ.get('CONVERT_README'):
+#     # import pypandoc
+#
+#     long_description = pypandoc.convert('README.md', 'rst')
+# else:
+#     long_description = ''
+long_description = ''
 version = sys.version_info[:2]
 if version < (2, 7):
     print('thefuck requires Python version 2.7 or later' +
@@ -31,7 +31,7 @@ elif (3, 0) < version < (3, 5):
           ' ({}.{} detected).'.format(*version))
     sys.exit(-1)
 
-VERSION = '3.38'
+VERSION = '4.0'
 
 install_requires = ['psutil', 'colorama', 'six', 'decorator', 'pyte']
 extras_require = {':python_version<"3.4"': ['pathlib2'],
@@ -39,13 +39,13 @@ extras_require = {':python_version<"3.4"': ['pathlib2'],
                   ':python_version<="2.7"': ['decorator<5'],
                   ":sys_platform=='win32'": ['win_unicode_console']}
 
-setup(name='thefuck',
+setup(name='pppp-2',
       version=VERSION,
       description="Magnificent app which corrects your previous console command",
       long_description=long_description,
-      author='Vladimir Iakovlev',
-      author_email='nvbn.rm@gmail.com',
-      url='https://github.com/nvbn/thefuck',
+      author='Ha Le',
+      author_email='nhiha001@gmail.com',
+      url='https://github.com/P4-Utwente/final-project-final-project-team-2/',
       license='MIT',
       packages=find_packages(exclude=['ez_setup', 'examples',
                                       'tests', 'tests.*', 'release']),

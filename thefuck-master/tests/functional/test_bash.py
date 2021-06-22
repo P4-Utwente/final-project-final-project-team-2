@@ -3,7 +3,6 @@ from tests.functional.plots import with_confirmation, without_confirmation, \
     refuse_with_confirmation, history_changed, history_not_changed, \
     select_command_with_arrows, how_to_configure
 
-
 python_3 = (u'thefuck/python3-bash',
             u'FROM python:3',
             u'sh')
