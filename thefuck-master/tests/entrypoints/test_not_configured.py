@@ -7,6 +7,7 @@ from thefuck.entrypoints.not_configured import main
 import tempfile
 import os
 
+
 @pytest.fixture(autouse=True)
 def usage_tracker(mocker):
     return mocker.patch(
