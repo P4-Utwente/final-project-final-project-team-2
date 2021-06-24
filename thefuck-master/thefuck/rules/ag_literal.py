@@ -1,6 +1,7 @@
 """System module."""
 from thefuck.utils import for_app
 
+
 @for_app('ag')
 def match(command):
     """A dummy docstring."""
