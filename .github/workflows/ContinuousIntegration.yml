@@ -39,7 +39,7 @@ jobs:
           python setup.py develop
       - name: Code style check
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
-        run: pylint thefuck/rules/ag_literal.py,thefuck/rules/apt_get.py 
+        run: pylint thefuck/rules/ag_literal.py thefuck/rules/apt_get.py 
       - name: Lint
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         run: flake8
