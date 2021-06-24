@@ -1,5 +1,6 @@
-from thefuck.utils import for_app
 """System module."""
+from thefuck.utils import for_app
+
 
 
 
