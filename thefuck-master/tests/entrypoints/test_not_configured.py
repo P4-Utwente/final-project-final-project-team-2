@@ -52,16 +52,12 @@ def shell_pid(mocker):
 
 @pytest.fixture(autouse=True)
 def shell(mocker):
-    tmpdir = tempfile.mkdtemp()
-    predictable_filename = '.bashrc'
-    saved_unask = os.umask(0o0077)
-
     shell = mocker.patch('thefuck.entrypoints.not_configured.shell',
                          new_callable=MagicMock)
     shell.get_history.return_value = []
     shell.how_to_configure.return_value = ShellConfiguration(
         content='eval $(thefuck --alias)',
-        path=os.path.join(tmpdir, predictable_filename),
+        path='/tmp/.baschrc',
         reload='bash',
         can_configure_automatically=True)
     return shell
