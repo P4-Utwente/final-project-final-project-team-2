@@ -1,0 +1,16 @@
+using pylint code style is reviewed with results:
+ ************* Module thefuck.rules.ag_literal
+thefuck/rules/ag_literal.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+thefuck/rules/ag_literal.py:5:0: C0116: Missing function or method docstring (missing-function-docstring)
+thefuck/rules/ag_literal.py:9:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module thefuck.rules.apt_get
+thefuck/rules/apt_get.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+thefuck/rules/apt_get.py:18:4: C0103: Constant name "enabled_by_default" doesn't conform to UPPER_CASE naming style (invalid-name)
+thefuck/rules/apt_get.py:22:4: R1705: Unnecessary "else" after "return" (no-else-return)
+thefuck/rules/apt_get.py:29:0: C0116: Missing function or method docstring (missing-function-docstring)
+thefuck/rules/apt_get.py:38:0: C0116: Missing function or method docstring (missing-function-docstring)
+thefuck/rules/apt_get.py:39:4: R1705: Unnecessary "else" after "return" (no-else-return)
+thefuck/rules/apt_get.py:46:0: C0116: Missing function or method docstring (missing-function-docstring)
+
+-----------------------------------
+Your code has been rated at 7.30/10
