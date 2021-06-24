@@ -4,8 +4,6 @@ from six import StringIO
 from mock import MagicMock
 from thefuck.shells.generic import ShellConfiguration
 from thefuck.entrypoints.not_configured import main
-import tempfile
-import os
 
 
 @pytest.fixture(autouse=True)
