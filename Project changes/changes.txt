@@ -18,6 +18,125 @@ Your code has been rated at 7.30/10
 All these errors/warning are fixed with changing the constant name being one point
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
+Running bandit resulted in a lot of low risk, 10 medium risk and 1 high risk vulnerabilites.
+It was decided to fix all medium and high risk vulnerabilities.
+these where:
+
+>> Issue: [B108:hardcoded_tmp_directory] Probable insecure usage of temp file/directory.
+   Severity: Medium   Confidence: Medium
+   Location: thefuck-master/tests/entrypoints/test_not_configured.py:58
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b108_hardcoded_tmp_directory.html
+57              content='eval $(thefuck --alias)',
+58              path='/tmp/.bashrc',
+59              reload='bash',
+
+--------------------------------------------------
+>> Issue: [B108:hardcoded_tmp_directory] Probable insecure usage of temp file/directory.
+   Severity: Medium   Confidence: Medium
+   Location: thefuck-master/tests/entrypoints/test_not_configured.py:115
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b108_hardcoded_tmp_directory.html
+114             content='eval $(thefuck --alias)',
+115             path='/tmp/.bashrc',
+116             reload='bash',
+
+--------------------------------------------------
+>> Issue: [B108:hardcoded_tmp_directory] Probable insecure usage of temp file/directory.
+   Severity: Medium   Confidence: Medium
+   Location: thefuck-master/tests/rules/test_fix_file.py:103
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b108_hardcoded_tmp_directory.html
+102
+103         FixFileTest('fish a.sh', '/tmp/fix-error/a.sh', 2, None, """
+104     fish: Unknown command 'foo'
+105     /tmp/fix-error/a.sh (line 2): foo
+106                                   ^
+107     """),
+108
+109         FixFileTest('./a', './a', 2, None, """
+
+--------------------------------------------------
+>> Issue: [B108:hardcoded_tmp_directory] Probable insecure usage of temp file/directory.
+   Severity: Medium   Confidence: Medium
+   Location: thefuck-master/tests/test_argument_parser.py:32
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b108_hardcoded_tmp_directory.html
+31           _args(command=['git', 'branch', '-a'], repeat=True, debug=True)),
+32          (['thefuck', '-l', '/tmp/log'], _args(shell_logger='/tmp/log')),
+33          (['thefuck', '--shell-logger', '/tmp/log'],
+
+--------------------------------------------------
+>> Issue: [B108:hardcoded_tmp_directory] Probable insecure usage of temp file/directory.
+   Severity: Medium   Confidence: Medium
+   Location: thefuck-master/tests/test_argument_parser.py:32
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b108_hardcoded_tmp_directory.html
+31           _args(command=['git', 'branch', '-a'], repeat=True, debug=True)),
+32          (['thefuck', '-l', '/tmp/log'], _args(shell_logger='/tmp/log')),
+33          (['thefuck', '--shell-logger', '/tmp/log'],
+
+--------------------------------------------------
+>> Issue: [B108:hardcoded_tmp_directory] Probable insecure usage of temp file/directory.
+   Severity: Medium   Confidence: Medium
+   Location: thefuck-master/tests/test_argument_parser.py:33
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b108_hardcoded_tmp_directory.html
+32          (['thefuck', '-l', '/tmp/log'], _args(shell_logger='/tmp/log')),
+33          (['thefuck', '--shell-logger', '/tmp/log'],
+34           _args(shell_logger='/tmp/log'))])
+
+--------------------------------------------------
+>> Issue: [B108:hardcoded_tmp_directory] Probable insecure usage of temp file/directory.
+   Severity: Medium   Confidence: Medium
+   Location: thefuck-master/tests/test_argument_parser.py:34
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b108_hardcoded_tmp_directory.html
+33          (['thefuck', '--shell-logger', '/tmp/log'],
+34           _args(shell_logger='/tmp/log'))])
+35      def test_parse(argv, result):
+
+--------------------------------------------------
+>> Issue: [B604:any_other_function_with_shell_equals_true] Function call with shell=True parameter identified, possible security issue.
+   Severity: Medium   Confidence: Low
+   Location: thefuck-master/tests/test_types.py:135
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b604_any_other_function_with_shell_equals_true.html
+134             Popen.assert_called_once_with('apt-get search vim',
+135                                           shell=True,
+136                                           stdin=PIPE,
+137                                           stdout=PIPE,
+138                                           stderr=STDOUT,
+139                                           env=os_environ)
+140
+141         @pytest.mark.parametrize('script, result', [
+
+--------------------------------------------------
+>> Issue: [B602:subprocess_popen_with_shell_equals_true] subprocess call with shell=True identified, security issue.
+   Severity: High   Confidence: High
+   Location: thefuck-master/thefuck/output_readers/rerun.py:60
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b602_subprocess_popen_with_shell_equals_true.html
+59                  script, env, is_slow)):
+60              result = Popen(expanded, shell=True, stdin=PIPE,
+61                             stdout=PIPE, stderr=STDOUT, env=env)
+62              if _wait_output(result, is_slow):
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: thefuck-master/thefuck/utils.py:217
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+216             try:
+217                 self._db = shelve.open(cache_path)
+218             except shelve_open_error + (ImportError,):
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: thefuck-master/thefuck/utils.py:222
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+221                 os.remove(cache_path)
+222                 self._db = shelve.open(cache_path)
+223
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
 
 a test is written for the cargo.py file
 
