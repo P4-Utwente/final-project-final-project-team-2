@@ -36,12 +36,15 @@ jobs:
         run: |
           pip install -Ur requirements.txt coveralls
           python setup.py develop
-      - name: Code style check
+      - name: Pylint Code style checks
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         run: pylint thefuck/rules/ag_literal.py thefuck/rules/apt_get.py 
-      - name: Lint
+      - name: Flake8 code style checks
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         run: flake8
+      - name: Bandit security isues check
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
+        run: bandit -r thefuck tests
       - name: Run tests
         if: matrix.os != 'ubuntu-latest' || matrix.python-version != env.PYTHON_LATEST
         run: coverage run --source=thefuck,tests -m pytest -v --capture=sys tests
