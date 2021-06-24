@@ -54,7 +54,7 @@ def shell_pid(mocker):
 def shell(mocker):
     tmpdir = tempfile.mkdtemp()
     predictable_filename = '.bashrc'
-    saved_unask = os.umask(0077)
+    saved_unask = os.umask(0o0077)
 
     shell = mocker.patch('thefuck.entrypoints.not_configured.shell',
                          new_callable=MagicMock)
