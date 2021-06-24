@@ -36,18 +36,16 @@ jobs:
         run: |
           pip install -Ur requirements.txt coveralls
           python setup.py develop
-      - name: Lint
+      - name: Code style checks and enforcement
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         run: flake8
+	run: pylint thefuck/rules
       - name: Run tests
         if: matrix.os != 'ubuntu-latest' || matrix.python-version != env.PYTHON_LATEST
         run: coverage run --source=thefuck,tests -m pytest -v --capture=sys tests
       - name: Run tests (including functional)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         run: coverage run --source=thefuck,tests -m pytest -v --capture=sys tests --enable-functional
-      - name: Analysing the code with pylint
-        run: |
-	  find . -name '*.py' -exec pylint {} \;
       - name: Post coverage results
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         env:
