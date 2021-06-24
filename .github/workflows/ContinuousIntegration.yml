@@ -22,15 +22,15 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      #- name: Cache dependencies
-      #  id: cache-deps
-      # uses: actions/cache@v2
-      #  with:
-      #    path: |
-      #      ${{ env.pythonLocation }}/bin/*
-      #      ${{ env.pythonLocation }}/lib/*
-      #      ${{ env.pythonLocation }}/scripts/*
-      #    key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('setup.py', 'requirements.txt') }}
+      - name: Cache dependencies
+        id: cache-deps
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{ env.pythonLocation }}/bin/*
+            ${{ env.pythonLocation }}/lib/*
+            ${{ env.pythonLocation }}/scripts/*
+          key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('setup.py', 'requirements.txt') }}
       - name: Install The Fuck with all dependencies
         if: steps.cache-deps.outputs.cache-hit != 'true'
         run: |
@@ -39,7 +39,7 @@ jobs:
           python setup.py develop
       - name: Code style check
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
-        run: pylint thefuck/rules
+        run: pylint thefuck/rules/ag_literal.py,thefuck/rules/apt_get.py 
       - name: Lint
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         run: flake8
