@@ -4,6 +4,7 @@ from thefuck.specific.apt import apt_available
 from thefuck.utils import memoize, which
 from thefuck.shells import shell
 
+
 try:
     from CommandNotFound import CommandNotFound
 
@@ -23,7 +24,7 @@ def _get_executable(command):
     '''-get_executable function'''
     if command.script_parts[0] == 'sudo':
         return command.script_parts[1]
-    else return command.script_parts[0]
+    return command.script_parts[0]
 
 
 @memoize
@@ -42,7 +43,7 @@ def match(command):
     if 'not found' in command.output or 'not installed' in command.output:
         executable = _get_executable(command)
         return not which(executable) and get_package(executable)
-    else return False
+    return False
 
 
 def get_new_command(command):

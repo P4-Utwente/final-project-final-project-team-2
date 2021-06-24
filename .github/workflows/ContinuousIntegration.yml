@@ -1,4 +1,4 @@
-name: Tests
+name: CI
 
 on: [push, pull_request]
 
@@ -22,27 +22,29 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      #- name: Cache dependencies
-      #  id: cache-deps
-      #  uses: actions/cache@v2
-      #  with:
-      #    path: |
-      #      ${{ env.pythonLocation }}/bin/*
-      #      ${{ env.pythonLocation }}/lib/*
-      #      ${{ env.pythonLocation }}/scripts/*
-      #    key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('setup.py', 'requirements.txt') }}
+      - name: Cache dependencies
+        id: cache-deps
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{ env.pythonLocation }}/bin/*
+            ${{ env.pythonLocation }}/lib/*
+            ${{ env.pythonLocation }}/scripts/*
+          key: ${{ runner.os }}-pip-v2-${{ matrix.python-version }}-${{ hashFiles('setup.py', 'requirements.txt') }}
       - name: Install The Fuck with all dependencies
         if: steps.cache-deps.outputs.cache-hit != 'true'
         run: |
-          pip3 install -Ur requirements.txt coveralls
-          pip3 install pylint
+          pip install -Ur requirements.txt coveralls
           python setup.py develop
-      - name: Code style check
+      - name: Pylint Code style checks
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         run: pylint thefuck/rules/ag_literal.py thefuck/rules/apt_get.py 
-      - name: Lint
+      - name: Flake8 code style checks
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         run: flake8
+      - name: Bandit security isues check
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
+        run: bandit -r thefuck tests
       - name: Run tests
         if: matrix.os != 'ubuntu-latest' || matrix.python-version != env.PYTHON_LATEST
         run: coverage run --source=thefuck,tests -m pytest -v --capture=sys tests
