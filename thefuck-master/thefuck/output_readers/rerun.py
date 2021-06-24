@@ -58,7 +58,7 @@ def get_output(script, expanded):
     with logs.debug_time(u'Call: {}; with env: {}; is slow: {}'.format(
 
             script, env, is_slow)):
-        result = Popen(expanded, shell=False, stdin=PIPE,
+        result = Popen(expanded, shell=True, stdin=PIPE,
                        stdout=PIPE, stderr=STDOUT, env=env)
         if _wait_output(result, is_slow):
             output = result.stdout.read().decode('utf-8')
