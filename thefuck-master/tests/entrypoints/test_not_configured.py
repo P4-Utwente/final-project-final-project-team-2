@@ -4,7 +4,8 @@ from six import StringIO
 from mock import MagicMock
 from thefuck.shells.generic import ShellConfiguration
 from thefuck.entrypoints.not_configured import main
-
+import tempfile
+import os
 
 @pytest.fixture(autouse=True)
 def usage_tracker(mocker):
@@ -50,12 +51,16 @@ def shell_pid(mocker):
 
 @pytest.fixture(autouse=True)
 def shell(mocker):
+    tmpdir = tempfile.mkdtemp()
+    predictable_filename = '.bashrc'
+    saved_unask = os.umask(0077)
+
     shell = mocker.patch('thefuck.entrypoints.not_configured.shell',
                          new_callable=MagicMock)
     shell.get_history.return_value = []
     shell.how_to_configure.return_value = ShellConfiguration(
         content='eval $(thefuck --alias)',
-        path='/tmp/.bashrc',
+        path=os.path.join(tmpdir, predictable_filename),
         reload='bash',
         can_configure_automatically=True)
     return shell
