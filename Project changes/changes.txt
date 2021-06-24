@@ -14,3 +14,26 @@ thefuck/rules/apt_get.py:46:0: C0116: Missing function or method docstring (miss
 
 -----------------------------------
 Your code has been rated at 7.30/10
+
+All these errors/warning are fixed with changing the constant name being one point
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+a test is written for the cargo.py file
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+a new rule with acompanying test is written 
+cd_prev.py
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+a new rule with acompanying test is written 
+gcloud_auth.py
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+the continuous integration workflow is extended to include Pylint
+a continuous deployment workflow is written
+
+
