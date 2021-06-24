@@ -32,9 +32,7 @@ def test_match(brew_no_available_formula, brew_already_installed,
     assert not match(Command('brew install git',
                              brew_already_installed))
     assert not match(Command('brew install', brew_install_no_argument))
-
-    assert not match(Command('apt', brew_install_no_arguments))
-
+    
 
 @pytest.mark.skipif(_is_not_okay_to_test(),
                     reason='No need to run if there\'s no formula')
