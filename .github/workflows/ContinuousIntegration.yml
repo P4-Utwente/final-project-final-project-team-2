@@ -34,8 +34,8 @@ jobs:
       - name: Install The Fuck with all dependencies
         if: steps.cache-deps.outputs.cache-hit != 'true'
         run: |
-          pip install -Ur requirements.txt coveralls
-          pip install pylint
+          pip3 install -Ur requirements.txt coveralls
+          pip3 install pylint
           python setup.py develop
       - name: Code style check
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
