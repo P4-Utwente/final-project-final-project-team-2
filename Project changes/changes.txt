@@ -18,6 +18,20 @@ Your code has been rated at 7.30/10
 All these errors/warning are fixed with changing the constant name being one point
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
+Running bandit resulted in a lot of low risk, 10 medium risk and 1 high risk vulnerabilites.
+It was decided to fix the high risk vulnerability.
+this was:
+--------------------------------------------------
+>> Issue: [B602:subprocess_popen_with_shell_equals_true] subprocess call with shell=True identified, security issue.
+   Severity: High   Confidence: High
+   Location: thefuck-master/thefuck/output_readers/rerun.py:60
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b602_subprocess_popen_with_shell_equals_true.html
+59                  script, env, is_slow)):
+60              result = Popen(expanded, shell=True, stdin=PIPE,
+61                             stdout=PIPE, stderr=STDOUT, env=env)
+62              if _wait_output(result, is_slow):
+
+----------------------------------------------------------------------------------------------------------------------------------------------
 
 a test is written for the cargo.py file
 
