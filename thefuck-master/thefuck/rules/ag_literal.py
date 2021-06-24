@@ -1,4 +1,6 @@
 from thefuck.utils import for_app
+"""System module."""
+
 
 
 @for_app('ag')
