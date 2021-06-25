@@ -10,4 +10,3 @@ pytest-benchmark
 pytest-docker-pexpect
 twine
 pylint
-bandit
