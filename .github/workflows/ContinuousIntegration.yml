@@ -53,11 +53,11 @@ jobs:
         run: coverage run --source=thefuck,tests -m pytest -v --capture=sys tests --enable-functional
       - name: Post coverage results
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: coveralls --output=coveralls.txt
-      - name: Post coverage results
-        if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: coveralls --service=github
+      - name: Commit coverall file
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: Ha Le
+          author_email: nhiha001@gmail.com
+          message: 'Upload coverage.txt'
+          add: 'coveralls.txt'
