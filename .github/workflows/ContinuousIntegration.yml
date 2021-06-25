@@ -44,7 +44,7 @@ jobs:
         run: flake8
       - name: Bandit security isues check
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
-        run: bandit -r -lll thefuck tests
+        run: bandit -r -ll thefuck tests
       - name: Run tests
         if: matrix.os != 'ubuntu-latest' || matrix.python-version != env.PYTHON_LATEST
         run: coverage run --source=thefuck,tests -m pytest -v --capture=sys tests
