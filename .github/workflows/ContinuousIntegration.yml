@@ -50,12 +50,7 @@ jobs:
         run: coverage run --source=thefuck,tests -m pytest -v --capture=sys tests
       - name: Run tests (including functional)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
-        run: coverage run --source=thefuck,tests -m pytest -v --capture=sys tests --enable-functional
-      - name: show coveralls result locally
-        if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: coveralls -report
+        run: coverage run --source=thefuck,tests -m pytest -v --capture=sys tests --enable-functional   
       - name: Post coverage results
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         env:
