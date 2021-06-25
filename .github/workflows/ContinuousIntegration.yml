@@ -54,10 +54,10 @@ jobs:
       - name: Post coverage results
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: coveralls --output=coveralls.txt
       - name: Post coverage results
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: coveralls --service=github
