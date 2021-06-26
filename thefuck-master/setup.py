@@ -4,7 +4,6 @@ import pkg_resources
 import sys
 import os
 import fastentrypoints
-from version import get_git_version
 
 
 try:
