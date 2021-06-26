@@ -6,6 +6,7 @@ import os
 import fastentrypoints
 
 
+
 try:
     if int(pkg_resources.get_distribution("pip").version.split('.')[0]) < 6:
         print('pip older than 6.0 not supported, please upgrade pip with:\n\n'
@@ -13,14 +14,8 @@ try:
         sys.exit(-1)
 except pkg_resources.DistributionNotFound:
     pass
-#
-# if os.environ.get('CONVERT_README'):
-#     # import pypandoc
-#
-#     long_description = pypandoc.convert('README.md', 'rst')
-# else:
-#     long_description = ''
-long_description = ''
+
+long_description = 'App to correct previous command errors'
 version = sys.version_info[:2]
 if version < (2, 7):
     print('thefuck requires Python version 2.7 or later' +
@@ -31,7 +26,7 @@ elif (3, 0) < version < (3, 5):
           ' ({}.{} detected).'.format(*version))
     sys.exit(-1)
 
-VERSION = '4.0'
+
 
 install_requires = ['psutil', 'colorama', 'six', 'decorator', 'pyte']
 extras_require = {':python_version<"3.4"': ['pathlib2'],
@@ -39,7 +34,9 @@ extras_require = {':python_version<"3.4"': ['pathlib2'],
                   ':python_version<="2.7"': ['decorator<5'],
                   ":sys_platform=='win32'": ['win_unicode_console']}
 
-setup(name='pppp-2',
+VERSION = os.getenv('VERSION')
+
+setup(name='pppp',
       version=VERSION,
       description="Magnificent app which corrects your previous console command",
       long_description=long_description,
