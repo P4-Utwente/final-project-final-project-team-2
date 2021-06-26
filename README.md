@@ -29,7 +29,7 @@ Tools for style guide enforcement: flake8
   Developers will create pull request to the offical repostitory, author will review and consider to accept it
 
 [version-badge]:   https://shields.io/github/v/release/P4-Utwente/final-project-final-project-team-2
-[version-link]:    https://test.pypi.org/project/pppp-2/
+[version-link]:    https://test.pypi.org/project/pppp/
 [workflow-badge]:  https://github.com/P4-Utwente/final-project-final-project-team-2/workflows/Tests/badge.svg
 [workflow-link]:   https://github.com/P4-Utwente/final-project-final-project-team-2/actions?query=workflow%3ATests
 [coverage-badge]:  https://img.shields.io/coveralls/HaLe-Twente/ds-ienlp.svg  
