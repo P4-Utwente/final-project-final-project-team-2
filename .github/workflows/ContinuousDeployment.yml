@@ -33,7 +33,7 @@ jobs:
       run: export VERSION=${GITHUB_REF#refs/tags/}
     - name: Print Version
       id: print_version
-      run: echo $VERSION
+      run: echo ${{ github.event.release.tag_name }}
     - name: Build package
       run: python setup.py sdist bdist_wheel
     - name: Publish package
