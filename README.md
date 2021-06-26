@@ -1,16 +1,7 @@
-# Final Project P4
-For all documentation related to your final project. You can use it for other purposes, but you do not have to.
 
-The wiki should introduce the code base, discuss where it comes from, its size, its relevance, its maturity, whether it is open or proprietary, professionally developed, or by volunteers.
+# Final Project P4 - The Fuck [![Version][version-badge]][version-link] [![Build Status][workflow-badge]][workflow-link] [![Coverage][coverage-badge]][coverage-link]
 
-It should furthermore present briefly the CI/CD system, including the build and version control system. It should present the static and dynamic analysis tools that will integrated, as well as the linked management systems.
-
-Explain how developers work with this system, and the envisioned work-flow. 
-
-
-Analysis:
-
-The source code come from the app call The Fuck, an open source app which corrects your previous console command.
+current host coverall result in another repo due to access deny to P4-Utwente
 
 1. Code size
 
@@ -36,3 +27,10 @@ Tools for style guide enforcement: flake8
 
 3. How developers work with system\
   Developers will create pull request to the offical repostitory, author will review and consider to accept it
+
+[version-badge]:   https://shields.io/github/v/release/P4-Utwente/final-project-final-project-team-2
+[version-link]:    https://test.pypi.org/project/pppp-2/
+[workflow-badge]:  https://github.com/P4-Utwente/final-project-final-project-team-2/workflows/Tests/badge.svg
+[workflow-link]:   https://github.com/P4-Utwente/final-project-final-project-team-2/actions?query=workflow%3ATests
+[coverage-badge]:  https://img.shields.io/coveralls/HaLe-Twente/ds-ienlp.svg  
+[coverage-link]:   https://coveralls.io/github/HaLe-Twente/ds-ienlp
