@@ -30,7 +30,7 @@ jobs:
         pip install -Ur requirements.txt
     - name: Get the version
       id: get_version
-      run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+      run: export VERSION=${GITHUB_REF#refs/tags/}
     - name: Print Version
       id: print_version
       run: echo $VERSION
