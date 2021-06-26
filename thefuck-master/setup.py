@@ -34,6 +34,7 @@ extras_require = {':python_version<"3.4"': ['pathlib2'],
                   ':python_version<="2.7"': ['decorator<5'],
                   ":sys_platform=='win32'": ['win_unicode_console']}
 
+VERSION = os.getenv('VERSION')
 
 print('VERSION', VERSION)
 setup(name='pppp',
