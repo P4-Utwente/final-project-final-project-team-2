@@ -4,6 +4,7 @@ import pkg_resources
 import sys
 import os
 import fastentrypoints
+from version import get_git_version
 
 
 try:
@@ -33,7 +34,7 @@ extras_require = {':python_version<"3.4"': ['pathlib2'],
                   ':python_version<="2.7"': ['decorator<5'],
                   ":sys_platform=='win32'": ['win_unicode_console']}
 
-VERSION = git describe
+
 print('VERSION', VERSION)
 setup(name='pppp',
       version=VERSION,
