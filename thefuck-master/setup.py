@@ -6,7 +6,6 @@ import os
 import fastentrypoints
 
 
-
 try:
     if int(pkg_resources.get_distribution("pip").version.split('.')[0]) < 6:
         print('pip older than 6.0 not supported, please upgrade pip with:\n\n'
@@ -35,7 +34,7 @@ extras_require = {':python_version<"3.4"': ['pathlib2'],
                   ":sys_platform=='win32'": ['win_unicode_console']}
 
 VERSION = os.getenv('VERSION')
-
+print('VERSION', VERSION)
 setup(name='pppp',
       version=VERSION,
       description="Magnificent app which corrects your previous console command",
