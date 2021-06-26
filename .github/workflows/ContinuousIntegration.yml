@@ -42,9 +42,9 @@ jobs:
       - name: Flake8 code style checks
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         run: flake8
-      - name: Bandit security isues check
-        if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
-        run: bandit -r thefuck tests
+      #- name: Bandit security isues check
+        #if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
+        #run: bandit -r -ll thefuck tests
       - name: Run tests
         if: matrix.os != 'ubuntu-latest' || matrix.python-version != env.PYTHON_LATEST
         run: coverage run --source=thefuck,tests -m pytest -v --capture=sys tests
@@ -54,5 +54,6 @@ jobs:
       - name: Post coverage results
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.PYTHON_LATEST
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: coveralls --service=github
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        run: coveralls
+      

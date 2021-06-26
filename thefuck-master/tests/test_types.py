@@ -132,7 +132,7 @@ class TestCommand(object):
             ['apt-get', 'search', 'vim']) == Command(
             'apt-get search vim', 'output')
         Popen.assert_called_once_with('apt-get search vim',
-                                      shell=False,
+                                      shell=True,
                                       stdin=PIPE,
                                       stdout=PIPE,
                                       stderr=STDOUT,

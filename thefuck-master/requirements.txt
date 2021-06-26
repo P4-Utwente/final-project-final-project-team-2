@@ -10,4 +10,5 @@ pytest-benchmark
 pytest-docker-pexpect
 twine
 pylint
-bandit
+bandit<=1.4.0;python_version < '3.0'
+bandit>=1.7.0;python_version >= '3.0'
